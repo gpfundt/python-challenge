@@ -42,16 +42,18 @@ with open(csvpath, newline = "") as csvfile:
     print("Greatest increase in Profits: {} {}".format(incDate,gIncrease))
     print("Greatest decrease in Profits: {} {}".format(decDate,gDecrease))
     
-newfilepath = "hwOutput.csv"
-with open(newfilepath, mode="w", newline='') as csvfile2:
-    csvwriter = csv.writer(csvfile2, delimiter=",")
-    line1 = str(totalMonths)
-    line2 = str(totalMoney)
-    line3 = str(avgChange)
-    line4 = str("Greatest increase in Profits: {} {}".format(incDate,gIncrease))
-    line5 = str("Greatest decrease in Profits: {} {}".format(decDate,gDecrease))
-    csvwriter.writerow(["Total Months:", line1])
-    csvwriter.writerow(["Total Money:",  line2])
-    csvwriter.writerow(["Average Change:", line3])
-    csvwriter.writerow(["Greatest Increase:",  line4])
-    csvwriter.writerow(["Greatest Decrease:",  line5])
+newfilepath = "hwOutput.txt"
+with open(newfilepath,"w") as txtfile:
+    #line1 = str(totalMonths)
+    #line2 = str(totalMoney)
+    #line3 = str(avgChange)
+    
+    txtfile.write("Total Months:{}".format(totalMonths))
+    txtfile.write("\n")
+    txtfile.write("Total Money:{}".format(totalMoney))
+    txtfile.write("\n")
+    txtfile.write("Average Change: {}".format(avgChange))
+    txtfile.write("\n")
+    txtfile.write(str("Greatest increase in Profits: {} {}".format(incDate,gIncrease)))
+    txtfile.write("\n")
+    txtfile.write(str("Greatest decrease in Profits: {} {}".format(decDate,gDecrease)))
