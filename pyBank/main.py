@@ -20,14 +20,18 @@ with open(csvpath, newline = "") as csvfile:
     for i in range(0, len(money_l)): 
         money_l[i] = int(money_l[i])
     
-    avgChange_l =[j - i for i, j in zip(money_l[:-1], money_l[1:])]
+    change_l = []
+    change = 0
+    for num in range(0,(len(money_l)-1)):
+        change = money_l[num + 1] - money_l[num]
+        change_l.append(change)
+
+    gIncrease = max(change_l)
+    gDecrease = min(change_l)
+    avgChange = sum(change_l)/len(change_l)
     
-    gIncrease = max(avgChange_l)
-    gDecrease = min(avgChange_l)
-    avgChange = sum(avgChange_l)/len(avgChange_l)
-    
-    date1 = (avgChange_l.index(gIncrease))+1
-    date2 = (avgChange_l.index(gDecrease))+1
+    date1 = (change_l.index(gIncrease))+1
+    date2 = (change_l.index(gDecrease))+1
     
     incDate = months_l[int(date1)]
     decDate = months_l[int(date2)]
@@ -48,6 +52,6 @@ with open(newfilepath, mode="w", newline='') as csvfile2:
     line5 = str("Greatest decrease in Profits: {} {}".format(decDate,gDecrease))
     csvwriter.writerow(["Total Months:", line1])
     csvwriter.writerow(["Total Money:",  line2])
-    csvwriter.writerow(["Average Change:",  line3])
+    csvwriter.writerow(["Average Change:", line3])
     csvwriter.writerow(["Greatest Increase:",  line4])
     csvwriter.writerow(["Greatest Decrease:",  line5])
