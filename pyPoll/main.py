@@ -9,7 +9,7 @@ with open(csvpath, newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ",")
     csvheader = next(csvreader)
     
-    #separate column of votes
+    #separate column of votes from csv file
     votes_l = []
     for row in csvreader:
         votes_l.append(row[2])
@@ -52,7 +52,15 @@ with open(csvpath, newline="") as csvfile:
         winner = candidate_3
     elif winner_Amt == votes_c4:
         winner = candidate_4
-    
+
+    #print results
+    print("Total Votes: {}".format(totalVotes))
+    print("{}: {}% ({})".format(candidate_1,percent_c1,votes_c1))
+    print("{}: {}% ({})".format(candidate_2,percent_c2,votes_c2))
+    print("{}: {}% ({})".format(candidate_3,percent_c3,votes_c3))
+    print("{}: {}% ({})".format(candidate_4,percent_c4,votes_c4))
+    print("Winner is {}".format(winner))
+ 
     #output a txt file with results
     newfilepath = "hwOutput.txt"
     with open(newfilepath,"w") as txtfile:   
