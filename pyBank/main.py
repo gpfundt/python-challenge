@@ -39,21 +39,21 @@ with open(csvpath, newline = "") as csvfile:
     print(totalMonths)
     print(totalMoney)
     print(avgChange)
-    print("Greatest increase in Profits: {} {}".format(incDate,gIncrease))
-    print("Greatest decrease in Profits: {} {}".format(decDate,gDecrease))
+    print("Greatest increase in Profits: {} (${})".format(incDate,gIncrease))
+    print("Greatest decrease in Profits: {} (${})".format(decDate,gDecrease))
     
 newfilepath = "hwOutput.txt"
-with open(newfilepath,"w") as txtfile:
-    #line1 = str(totalMonths)
-    #line2 = str(totalMoney)
-    #line3 = str(avgChange)
-    
+with open(newfilepath,"w") as txtfile:   
+    txtfile.write("Financial Analysis")
+    txtfile.write("\n")
+    txtfile.write("--------------------") 
+    txtfile.write("\n")
     txtfile.write("Total Months:{}".format(totalMonths))
     txtfile.write("\n")
-    txtfile.write("Total Money:{}".format(totalMoney))
+    txtfile.write("Total Money: ${}".format(totalMoney))
     txtfile.write("\n")
-    txtfile.write("Average Change: {}".format(avgChange))
+    txtfile.write("Average Change: ${}".format(avgChange))
     txtfile.write("\n")
-    txtfile.write(str("Greatest increase in Profits: {} {}".format(incDate,gIncrease)))
+    txtfile.write(str("Greatest increase in Profits: {} (${})".format(incDate,gIncrease)))
     txtfile.write("\n")
-    txtfile.write(str("Greatest decrease in Profits: {} {}".format(decDate,gDecrease)))
+    txtfile.write(str("Greatest decrease in Profits: {} (${})".format(decDate,gDecrease)))
